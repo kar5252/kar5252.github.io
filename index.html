@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>320_Project</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>320_Project (1)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7825,7 +7825,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The United States is a global leader in international trade, engaging in the exchange of goods and services with countries worldwide. In these economically tubulent times, understanding the dynamics of U.S. trade is very important for economic policy decisions, and international relations. This project analyzes U.S. international trade data, focusing on the balance of trade in goods and services. It aims to explore the trends and relationships between imports and exports and analyze the factors that influence trade balance. More specifically we want to see how has overall trade balance changed over time, what are the factors contributing to this trend, is there a significant relationship between the values of American imports and exports for different trading partners, how do imports and exports in the service sector compare to the goods sector, and what are the implications for the overall trade balance? The answers to these questions can be used to affect economic policy by policymakers, but also can be analyzed by individuals to better understand aspects of life like the stock market, grocery store pricing, the availability of jobs in certain sectors, etc. By analyzing the historical data and using statistical methods this project aims to shed light on the dynamics of international trade. For this we will be using International Trades and Goods Dataset from the U.S. Bureau of Economic Analysis (<a href="https://www.bea.gov/data/intl-trade-investment/international-trade-goods-and-services">https://www.bea.gov/data/intl-trade-investment/international-trade-goods-and-services</a>).</p>
+<p>The United States is a global leader in international trade, engaging in the exchange of goods and services with countries worldwide. In these economically turbulent times, understanding the dynamics of U.S. trade is very important for economic policy decisions, and international relations. This project analyzes U.S. international trade data, focusing on the balance of trade in goods and services. It aims to explore the trends and relationships between imports and exports and analyze the factors that influence trade balance. More specifically we want to see how has overall trade balance changed over time, what are the factors contributing to this trend, is there a significant relationship between the values of American imports and exports for different trading partners, how do imports and exports in the service sector compare to the goods sector, and what are the implications for the overall trade balance? The answers to these questions can be used to affect economic policy by policymakers, but also can be analyzed by individuals to better understand aspects of life like the stock market, grocery store pricing, the availability of jobs in certain sectors, etc. By analyzing the historical data and using statistical methods this project aims to shed light on the dynamics of international trade. For this we will be using International Trades and Goods Dataset from the U.S. Bureau of Economic Analysis (<a href="https://www.bea.gov/data/intl-trade-investment/international-trade-goods-and-services">https://www.bea.gov/data/intl-trade-investment/international-trade-goods-and-services</a>).</p>
 </div>
 </div>
 </div>
@@ -7845,7 +7845,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -7881,7 +7881,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>First we need to import some tables from the dataset as dataframes. This can be done with pd.read_excel. For now we will have one dataframe for service imports and another for exports. Note that because the dataset orginally cannot be directly read, as the columns will be unamned, we can create new sheets in the dataset and manually and copy and paste the columns and the datapoints for correct formatting.</p>
+<p>First we need to import some tables from the dataset as dataframes. This can be done with pd.read_excel. For now we will have one dataframe for service imports and another for exports. Note that because the dataset originally cannot be directly read, as the columns will be unnamned, we can create new sheets in the dataset and manually copy and paste the columns and the datapoints for correct formatting.</p>
 </div>
 </div>
 </div>
@@ -7890,7 +7890,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">export_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"trad-time-series-0824 - Copy.xlsx"</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">"Services"</span><span class="p">)</span>
@@ -7925,7 +7925,17 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Before we do data analysis, we need to clean the datasets to prepare them for use. First we need to change the serivces export_df as there are some values where we cannot access the total due to null values in columns that are not Passenger Fares or Travel (The 2 most significant contributors to total). So we will replace the null total values with the sums of Passenger Fares and Travel.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Before we do data analysis, we need to clean the datasets to prepare them for use. First we need to change the services export_df as there are some values where we cannot access the total due to null values in columns that are not Passenger Fares or Travel (The 2 most significant contributors to total). So we will replace the null total values with the sums of Passenger Fares and Travel.</p>
 </div>
 </div>
 </div>
@@ -7934,7 +7944,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'future.no_silent_downcasting'</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
@@ -7972,7 +7982,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">index_a</span> <span class="o">=</span> <span class="n">balance_df</span><span class="p">[</span><span class="n">balance_df</span><span class="p">[</span><span class="s1">'Period'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"2024 Jul (R)"</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -8051,7 +8061,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -8120,7 +8130,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">t_statistic</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">import_df</span><span class="p">[</span><span class="s1">'Travel 1'</span><span class="p">],</span> <span class="n">export_df</span><span class="p">[</span><span class="s1">'Travel'</span><span class="p">])</span>
@@ -8150,7 +8160,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Since the p-value is greater than the significance level of 0.05, the null hypothosis fails to be rejected.</p>
+<p>Since the p-value is greater than the significance level of 0.05, the null hypothesis fails to be rejected.</p>
 </div>
 </div>
 </div>
@@ -8159,7 +8169,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -8201,7 +8211,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">t_statistic</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">import_df</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">],</span> <span class="n">export_df</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">])</span>
@@ -8267,7 +8277,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">t_statistic</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_1samp</span><span class="p">(</span><span class="n">export_df</span><span class="p">[</span><span class="s1">'Travel'</span><span class="p">],</span> <span class="n">popmean</span><span class="o">=</span><span class="mi">12000</span><span class="p">)</span>
@@ -8306,7 +8316,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">export_df</span><span class="p">[</span><span class="s1">'Travel'</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -8352,7 +8362,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">t_statistic</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">balance_df</span><span class="p">[</span><span class="s1">'Goods'</span><span class="p">],</span> <span class="n">balance_df</span><span class="p">[</span><span class="s1">'Services'</span><span class="p">])</span>
@@ -8429,7 +8439,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">t_statistic</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">countries_2024_df</span><span class="p">[</span><span class="s1">'Exports'</span><span class="p">],</span> <span class="n">countries_2023_df</span><span class="p">[</span><span class="s1">'Exports'</span><span class="p">])</span>
@@ -8482,7 +8492,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">t_statistic</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span>
@@ -8539,7 +8549,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>For primary analysis, we will be utilizing linear regression because it will allow us to better see the relationships between certain data and allow us to make predictions about the future. Along with this we will be using K-Fold validation to account for overfitting and make sure the linear regression model is perfroming well. We will first do this on the general trade balance data.</p>
+<p>For primary analysis, we will be utilizing linear regression because it will allow us to better see the relationships between certain data and allow us to make predictions about the future. Along with this we will be using K-Fold validation to account for overfitting and make sure the linear regression model is performing well. We will first do this on the general trade balance data.</p>
 </div>
 </div>
 </div>
@@ -8548,7 +8558,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">balance_df</span><span class="p">[[</span><span class="s1">'Period'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -8615,7 +8625,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">countries_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">countries_2023_df</span><span class="p">,</span> <span class="n">countries_2024_df</span><span class="p">])</span>
@@ -8694,7 +8704,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">balance_df</span><span class="p">[[</span><span class="s1">'Period'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -8776,7 +8786,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">countries_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">countries_2023_df</span><span class="p">,</span> <span class="n">countries_2024_df</span><span class="p">])</span>
@@ -8848,7 +8858,7 @@ According to the U.S. Travel Association (<a href="https://www.ustravel.org/syst
 <ol>
 <li><p>The overall trade balance of the United States has generally been decreasing over time, as indicated by the negative slope of the linear regression model. This suggests that the U.S. is importing more than it is exporting, leading to a trade deficit.</p>
 </li>
-<li><p>here is a strong positive correlation between the values of American imports and exports for different trading partners. This means that as exports to a country increase, imports from that country also tend to increase. However, the linear regression model shows that even when exports increase, the U.S. generally imports more than it exports, indicating a consistent trade deficit with individual trading partners.</p>
+<li><p>There is a strong positive correlation between the values of American imports and exports for different trading partners. This means that as exports to a country increase, imports from that country also tend to increase. However, the linear regression model shows that even when exports increase, the U.S. generally imports more than it exports, indicating a consistent trade deficit with individual trading partners.</p>
 </li>
 <li><p>The U.S. generally exports more services than it imports, resulting in a trade surplus in the service sector. Conversely, the U.S. imports significantly more goods than it exports, leading to a large trade deficit in the goods sector. This suggests that the United States is a service based economy</p>
 </li>
